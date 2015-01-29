@@ -21,6 +21,8 @@ class Item(Base):
     name = Column(String, nullable=False)
     description = Column(String)
     start_time = Column(DateTime, default=datetime.utcnow)
+    seller = relationship("User", backref='items')
+    bids = Column(Integer, ForeignKey(bids.id, backref='items'))
 
 class User(Base):
     __tablename__ = "users"
@@ -28,11 +30,12 @@ class User(Base):
     id = Column(Integer, primary_key=True)
     username = Column(String, nullable=False)
     password = Column(String, nullable=False)
+    auction_items = Column(Integer, ForeignKey(items.id, backref='users'))
 
 class Bid(Base):
     __tablename__ = "bids"
 
     id = Column(Integer, primary_key=True)
     price = Column(Float, nullable=False)
-    
+ 
 Base.metadata.create_all(engine)
