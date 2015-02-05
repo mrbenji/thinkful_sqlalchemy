@@ -1,0 +1,42 @@
+Traceback (most recent call last):
+  File "./tbay_add.py", line 31, in <module>
+    session.commit()
+  File "/home/codio/.parts/packages/python2/2.7.8/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 776, in commit
+    self.transaction.commit()
+  File "/home/codio/.parts/packages/python2/2.7.8/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 377, in commit
+    self._prepare_impl()
+  File "/home/codio/.parts/packages/python2/2.7.8/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 357, in _prepare_impl
+    self.session.flush()
+  File "/home/codio/.parts/packages/python2/2.7.8/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 1919, in flush
+    self._flush(objects)
+  File "/home/codio/.parts/packages/python2/2.7.8/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2037, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/home/codio/.parts/packages/python2/2.7.8/lib/python2.7/site-packages/sqlalchemy/util/langhelpers.py", line 60, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "/home/codio/.parts/packages/python2/2.7.8/lib/python2.7/site-packages/sqlalchemy/orm/session.py", line 2001, in _flush
+    flush_context.execute()
+  File "/home/codio/.parts/packages/python2/2.7.8/lib/python2.7/site-packages/sqlalchemy/orm/unitofwork.py", line 372, in execute
+    rec.execute(self)
+  File "/home/codio/.parts/packages/python2/2.7.8/lib/python2.7/site-packages/sqlalchemy/orm/unitofwork.py", line 526, in execute
+    uow
+  File "/home/codio/.parts/packages/python2/2.7.8/lib/python2.7/site-packages/sqlalchemy/orm/persistence.py", line 65, in save_obj
+    mapper, table, insert)
+  File "/home/codio/.parts/packages/python2/2.7.8/lib/python2.7/site-packages/sqlalchemy/orm/persistence.py", line 602, in _emit_insert_statements
+    execute(statement, params)
+  File "/home/codio/.parts/packages/python2/2.7.8/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 729, in execute
+    return meth(self, multiparams, params)
+  File "/home/codio/.parts/packages/python2/2.7.8/lib/python2.7/site-packages/sqlalchemy/sql/elements.py", line 322, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/home/codio/.parts/packages/python2/2.7.8/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 826, in _execute_clauseelement
+    compiled_sql, distilled_params
+  File "/home/codio/.parts/packages/python2/2.7.8/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 958, in _execute_context
+    context)
+  File "/home/codio/.parts/packages/python2/2.7.8/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 1159, in _handle_dbapi_exception
+    exc_info
+  File "/home/codio/.parts/packages/python2/2.7.8/lib/python2.7/site-packages/sqlalchemy/util/compat.py", line 199, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb)
+  File "/home/codio/.parts/packages/python2/2.7.8/lib/python2.7/site-packages/sqlalchemy/engine/base.py", line 951, in _execute_context
+    context)
+  File "/home/codio/.parts/packages/python2/2.7.8/lib/python2.7/site-packages/sqlalchemy/engine/default.py", line 436, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.ProgrammingError: (ProgrammingError) can't adapt type 'User' 'INSERT INTO bids (bidder_id, item_id, price) VALUES (%(bidder_id)s, %(item_id)s, %(price)s) RETURNING bids.id' {'item_id': <tbay.Item object at 0x7f5ae25f7790>, 'price': 100.0, 'bidder_id': <tbay.User object at 0x7f5ae2efd950>}
